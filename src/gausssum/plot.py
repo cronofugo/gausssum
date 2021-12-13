@@ -19,7 +19,7 @@ from tkinter import *
 # Matplotlib imports
 import matplotlib
 matplotlib.use('TkAgg')
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 from matplotlib.backend_bases import key_press_handler
 from matplotlib.figure import Figure
 
@@ -33,14 +33,15 @@ class DisplayPlot(object):
         self.title = title # do this better
 
         self.popup.resizable(False,False)
+        self.popup.geometry("600x500+0+0")
         self.frame1 = Frame(self.popup)
         self.frame1.pack()
 
         canvas = FigureCanvasTkAgg(g.figure, master=self.frame1)
-        canvas.show()
+        canvas.draw()
         canvas.get_tk_widget().pack(side=TOP, fill=BOTH, expand=1)
 
-        toolbar = NavigationToolbar2TkAgg( canvas, self.frame1 )
+        toolbar = NavigationToolbar2Tk(canvas, self.frame1)
         toolbar.update()
         canvas._tkcanvas.pack(side=TOP, fill=BOTH, expand=1)
 

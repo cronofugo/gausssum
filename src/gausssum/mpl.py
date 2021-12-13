@@ -24,7 +24,7 @@ colors = "bgrcmyk"
 
 class MPLPlot(object):
     def __init__(self):
-        self.figure = Figure(figsize=(6,5), dpi=100)
+        self.figure = Figure(figsize=(6,4.3), dpi=100)
         self.subplot = self.figure.add_subplot(111)
         self.cindex =0
 
